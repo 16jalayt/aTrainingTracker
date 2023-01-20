@@ -1,3 +1,7 @@
+----A version customized by 16jalayt----
+Updated dependencies and build tools to compile and run on newer Android.
+
+---Original by rainerblind----
 # aTrainingTracker
 An android app for tracking your sports activities (supporting ANT+ and BTLE).
 

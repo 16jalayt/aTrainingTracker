@@ -18,3 +18,8 @@ gen/
 
 # Release signing property file
 release.properties
+
+
+
+#-16jalayt- java dumps?
+*.hprof
