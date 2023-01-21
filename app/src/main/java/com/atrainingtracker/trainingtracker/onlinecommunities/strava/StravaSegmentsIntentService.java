@@ -31,7 +31,6 @@ import com.atrainingtracker.banalservice.database.SportTypeDatabaseManager;
 import com.atrainingtracker.trainingtracker.TrainingApplication;
 import com.atrainingtracker.trainingtracker.segments.SegmentsDatabaseManager;
 import com.atrainingtracker.trainingtracker.segments.SegmentsDatabaseManager.Segments;
-import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -599,7 +598,7 @@ public class StravaSegmentsIntentService extends IntentService {
                     db.update(Segments.TABLE_STARRED_SEGMENTS, contentValues, Segments.SEGMENT_ID + "=?", new String[]{mSegmentId + ""});
                 }
                 // get picture from URL and store it in some cache
-                Picasso.with(this).load(entry.getString("athlete_profile")).fetch();
+                //Picasso.with(this).load(entry.getString("athlete_profile")).fetch();
 
                 notifyNewLeaderboardEntry();
 

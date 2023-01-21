@@ -20,13 +20,14 @@ package com.atrainingtracker.trainingtracker.segments;
 
 import android.content.Context;
 import android.database.Cursor;
-import androidx.cursoradapter.widget.CursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.cursoradapter.widget.CursorAdapter;
 
 import com.atrainingtracker.R;
 import com.atrainingtracker.banalservice.sensor.formater.SpeedFormatter;
@@ -35,7 +36,6 @@ import com.atrainingtracker.trainingtracker.MyHelper;
 import com.atrainingtracker.trainingtracker.TrainingApplication;
 import com.atrainingtracker.trainingtracker.onlinecommunities.strava.StravaHelper;
 import com.atrainingtracker.trainingtracker.segments.SegmentsDatabaseManager.Segments;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by rainer on 10.08.16.
@@ -135,7 +135,7 @@ public class SegmentLeaderboardCursorAdapter extends CursorAdapter {
 
             case THIS_ATHLETE:
             case OTHER_ATHLETE:
-                Picasso.with(context).load(cursor.getString(cursor.getColumnIndex(Segments.ATHLETE_PROFILE_URL))).into(viewHolder.ivAthleteProfile);
+                //Picasso.with(context).load(cursor.getString(cursor.getColumnIndex(Segments.ATHLETE_PROFILE_URL))).into(viewHolder.ivAthleteProfile);
 
                 String rank = MyHelper.formatRank(cursor.getInt(cursor.getColumnIndex(Segments.RANK)));
                 viewHolder.tvAthleteName.setText(rank + ": " + cursor.getString(cursor.getColumnIndex(Segments.ATHLETE_NAME)));
