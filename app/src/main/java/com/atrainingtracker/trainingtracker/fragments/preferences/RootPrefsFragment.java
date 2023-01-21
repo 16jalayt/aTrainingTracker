@@ -21,16 +21,17 @@ package com.atrainingtracker.trainingtracker.fragments.preferences;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
-import android.util.Log;
 
 import com.atrainingtracker.R;
-import com.atrainingtracker.trainingtracker.exporter.FileFormat;
 import com.atrainingtracker.trainingtracker.TrainingApplication;
+import com.atrainingtracker.trainingtracker.exporter.FileFormat;
 
 
 public class RootPrefsFragment extends PreferenceFragmentCompat
@@ -41,7 +42,7 @@ public class RootPrefsFragment extends PreferenceFragmentCompat
 
     private EditTextPreference mAthleteNamePref, mSamplingTimePref, mSearchRoundsPref;
     private ListPreference mUnitPref;
-    private Preference mExport, mPebble, mLocationSources, mCloudUpload;
+    private Preference mExport, mLocationSources, mCloudUpload;
 
     private SharedPreferences mSharedPreferences;
 
@@ -62,7 +63,6 @@ public class RootPrefsFragment extends PreferenceFragmentCompat
 
         mExport = this.getPreferenceScreen().findPreference(TrainingApplication.FILE_EXPORT);
         mCloudUpload = this.getPreferenceScreen().findPreference(TrainingApplication.CLOUD_UPLOAD);
-        mPebble = this.getPreferenceScreen().findPreference(TrainingApplication.PEBBLE_SCREEN);
         mLocationSources = this.getPreferenceScreen().findPreference(TrainingApplication.LOCATION_SOURCES);
 
     }
@@ -83,7 +83,6 @@ public class RootPrefsFragment extends PreferenceFragmentCompat
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         mUnitPref.setSummary(TrainingApplication.getUnit().getNameId());
-        mPebble.setSummary(pebbleSummary());
         mLocationSources.setSummary(locationSourcesSummary());
 
 
@@ -120,17 +119,6 @@ public class RootPrefsFragment extends PreferenceFragmentCompat
         if (TrainingApplication.SP_UNITS.equals(key)) {
             mUnitPref.setSummary(TrainingApplication.getUnit().toString());
         }
-
-        if (TrainingApplication.SP_PEBBLE_WATCHAPP.equals(key)) {
-            mPebble.setSummary(pebbleSummary());
-            getActivity().onContentChanged();
-        }
-
-        if (TrainingApplication.SP_PEBBLE_SUPPORT.equals(key)) {
-            mPebble.setSummary(pebbleSummary());
-            getActivity().onContentChanged();
-        }
-
 
         if (TrainingApplication.SP_EXPORT_TO_CSV.equals(key)
                 | TrainingApplication.SP_EXPORT_TO_TCX.equals(key)
@@ -226,14 +214,6 @@ public class RootPrefsFragment extends PreferenceFragmentCompat
             string = "";
         }
         return string;
-    }
-
-    protected String pebbleSummary() {
-        if (TrainingApplication.pebbleSupport()) {
-            return getString(TrainingApplication.getPebbleWatchapp().getUiId());
-        } else {
-            return getString(R.string.prefsDoNotUsePebble);
-        }
     }
 
     protected String locationSourcesSummary() {

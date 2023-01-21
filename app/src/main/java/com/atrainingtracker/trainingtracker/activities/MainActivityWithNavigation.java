@@ -19,7 +19,6 @@
 package com.atrainingtracker.trainingtracker.activities;
 
 import android.Manifest;
-import androidx.appcompat.app.AlertDialog;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -34,30 +33,31 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceScreen;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceScreen;
+
 import com.atrainingtracker.R;
 import com.atrainingtracker.banalservice.ActivityType;
 import com.atrainingtracker.banalservice.BANALService;
-import com.atrainingtracker.banalservice.devices.DeviceType;
 import com.atrainingtracker.banalservice.Protocol;
 import com.atrainingtracker.banalservice.database.DevicesDatabaseManager;
+import com.atrainingtracker.banalservice.devices.DeviceType;
 import com.atrainingtracker.banalservice.dialogs.InstallANTShitDialog;
 import com.atrainingtracker.banalservice.filters.FilterData;
 import com.atrainingtracker.banalservice.fragments.DeviceTypeChoiceFragment;
@@ -66,9 +66,6 @@ import com.atrainingtracker.banalservice.fragments.RemoteDevicesFragment;
 import com.atrainingtracker.banalservice.fragments.RemoteDevicesFragmentTabbedContainer;
 import com.atrainingtracker.banalservice.fragments.SportTypeListFragment;
 import com.atrainingtracker.banalservice.helpers.BatteryStatusHelper;
-import com.atrainingtracker.trainingtracker.exporter.ExportManager;
-import com.atrainingtracker.trainingtracker.exporter.ExportWorkoutIntentService;
-import com.atrainingtracker.trainingtracker.exporter.FileFormat;
 import com.atrainingtracker.trainingtracker.TrainingApplication;
 import com.atrainingtracker.trainingtracker.database.TrackingViewsDatabaseManager;
 import com.atrainingtracker.trainingtracker.dialogs.DeleteOldWorkoutsDialog;
@@ -76,6 +73,9 @@ import com.atrainingtracker.trainingtracker.dialogs.EnableBluetoothDialog;
 import com.atrainingtracker.trainingtracker.dialogs.GPSDisabledDialog;
 import com.atrainingtracker.trainingtracker.dialogs.ReallyDeleteWorkoutDialog;
 import com.atrainingtracker.trainingtracker.dialogs.StartOrResumeDialog;
+import com.atrainingtracker.trainingtracker.exporter.ExportManager;
+import com.atrainingtracker.trainingtracker.exporter.ExportWorkoutIntentService;
+import com.atrainingtracker.trainingtracker.exporter.FileFormat;
 import com.atrainingtracker.trainingtracker.fragments.ExportStatusDialogFragment;
 import com.atrainingtracker.trainingtracker.fragments.StartAndTrackingFragmentTabbedContainer;
 import com.atrainingtracker.trainingtracker.fragments.WorkoutSummariesWithMapListFragment;
@@ -88,7 +88,6 @@ import com.atrainingtracker.trainingtracker.fragments.preferences.EmailUploadFra
 import com.atrainingtracker.trainingtracker.fragments.preferences.FancyWorkoutNameListFragment;
 import com.atrainingtracker.trainingtracker.fragments.preferences.FileExportFragment;
 import com.atrainingtracker.trainingtracker.fragments.preferences.LocationSourcesFragment;
-import com.atrainingtracker.trainingtracker.fragments.preferences.PebbleScreenFragment;
 import com.atrainingtracker.trainingtracker.fragments.preferences.RootPrefsFragment;
 import com.atrainingtracker.trainingtracker.fragments.preferences.RunkeeperUploadFragment;
 import com.atrainingtracker.trainingtracker.fragments.preferences.SearchFragment;
@@ -107,6 +106,7 @@ import com.atrainingtracker.trainingtracker.segments.StarredSegmentsTabbedContai
 import com.dropbox.core.android.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -829,8 +829,6 @@ public class MainActivityWithNavigation
             fragment = new RunkeeperUploadFragment();
         } else if (key.equals(TrainingApplication.PREFERENCE_SCREEN_TRAINING_PEAKS)) {
             fragment = new TrainingpeaksUploadFragment();
-        } else if (key.equals("pebbleScreen")) {
-            fragment = new PebbleScreenFragment();
         } else if (key.equals("prefsLocationSources")) {
             fragment = new LocationSourcesFragment();
         } else if (key.equals("altitudeCorrection")) {

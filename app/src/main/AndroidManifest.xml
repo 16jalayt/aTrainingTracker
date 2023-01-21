@@ -80,19 +80,6 @@
         </activity>
 
         <activity
-            android:name=".trainingtracker.smartwatch.pebble.ConfigPebbleViewsActivity"
-            android:label="@string/PebbleConfigActivityLabel"
-            android:launchMode="singleTask"
-            android:theme="@style/Theme.aTrainingTracker"
-            android:windowSoftInputMode="stateHidden"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.atrainingtracker.trainingtracker.smartwatch.pebble.ConfigPebbleViewsActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name="com.dropbox.core.android.AuthActivity"
             android:configChanges="orientation|keyboard"
             android:launchMode="singleTask"
