@@ -27,6 +27,7 @@ import com.atrainingtracker.banalservice.sensor.SensorType;
 import com.atrainingtracker.banalservice.sensor.SensorValueType;
 import com.atrainingtracker.trainingtracker.TrainingApplication;
 import com.atrainingtracker.trainingtracker.database.WorkoutSamplesDatabaseManager;
+import com.opencsv.CSVWriter;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -38,8 +39,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import au.com.bytecode.opencsv.CSVWriter;
 
 public class CSVFileExporter extends BaseExporter {
     private static final String TAG = "CSVFileExporter";

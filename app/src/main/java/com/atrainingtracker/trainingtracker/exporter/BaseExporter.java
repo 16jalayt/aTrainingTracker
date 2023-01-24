@@ -18,27 +18,24 @@
 
 package com.atrainingtracker.trainingtracker.exporter;
 
-import androidx.appcompat.app.AlertDialog;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
-
 import android.util.Log;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 import com.atrainingtracker.R;
-import com.atrainingtracker.trainingtracker.activities.MainActivityWithNavigation;
 import com.atrainingtracker.trainingtracker.MyHelper;
 import com.atrainingtracker.trainingtracker.TrainingApplication;
+import com.atrainingtracker.trainingtracker.activities.MainActivityWithNavigation;
 
 import org.json.JSONException;
 
@@ -82,10 +79,11 @@ public abstract class BaseExporter {
     }
 
     protected static File getBaseDir(Context context) {
-        File[] externalStorageVolumes =
-                ContextCompat.getExternalFilesDirs(context, null);
-        return externalStorageVolumes[0];
+        //File[] externalStorageVolumes =
+        //ContextCompat.getExternalFilesDirs(context, null);
+        //return externalStorageVolumes[0];
 
+        return new File(Environment.getExternalStorageDirectory() + "/aTrainingTracker");
     }
 
     public static File getDir(Context context, String type) {
